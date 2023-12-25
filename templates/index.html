@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приветствие</title>
+    <style>
+        body {
+            background-color: #f4f4f4; /* Цвет фона */
+            font-family: 'Arial', sans-serif; /* Шрифт */
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50vh; /* Высота экрана */
+        }
+
+        #container {
+            text-align: center;
+            background-color: #ffffff; /* Цвет фона блока */
+            padding: 20px;
+            border: 2px solid #e0e0e0; /* Цвет рамки */
+            border-radius: 10px; /* Закругленные углы */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень блока */
+        }
+
+        h1 {
+            color: #333333; /* Цвет текста */
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4caf50; /* Зеленый цвет кнопки */
+            color: #ffffff; /* Белый цвет текста на кнопке */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Темнозеленый цвет при наведении на кнопку */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>{{ greeting or 'Добро пожаловать!' }}</h1>
+        <form method="post">
+            <label for="name">Введите ваше имя: </label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Приветствовать</button>
+        </form>
+    </div>
+</body>
+</html>
