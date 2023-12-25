@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: docker.pkg.github.com/${{ github.repository }}/your-repo-name:latest
+          tags: docker.pkg.github.com/${{ github.repository }}/AWS-python-docker:latest
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
