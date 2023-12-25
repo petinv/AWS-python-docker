@@ -1,4 +1,4 @@
-# for testing Actions Github 1.0
+# for testing Actions Github 2.0
 
 from flask import Flask, render_template, request
 
