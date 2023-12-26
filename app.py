@@ -1,7 +1,5 @@
-# for testing Actions Github 2.0
-
 from flask import Flask, render_template, request
-from werkzeug.urls import unquote as url_unquote
+from urllib.parse import unquote as url_unquote
 
 app = Flask(__name__)
 
