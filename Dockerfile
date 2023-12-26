@@ -10,8 +10,11 @@ RUN python3 -m venv venv && \
     . venv/bin/activate && \
     pip install --no-cache-dir -r requirements.txt
 
+# Установим совместимую версию MarkupSafe
+RUN pip install --no-cache-dir MarkupSafe==1.1.1
+
 # Копируем код в контейнер
 COPY . .
 
 # Активируем виртуальное окружение и запускаем приложение
-CMD ["/app/venv/bin/python", "app.py"]
+CMD ["/app/venv/bin/python", "/app/app.py"]
