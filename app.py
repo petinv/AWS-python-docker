@@ -1,7 +1,7 @@
 # for testing Actions Github 2.0
 
 from flask import Flask, render_template, request
-from werkzeug.urls import url_quote, url_unquote
+from werkzeug.urls import quote, unquote
 
 app = Flask(__name__)
 
@@ -16,4 +16,5 @@ def greet():
     return render_template('index.html', greeting=greeting)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
+
