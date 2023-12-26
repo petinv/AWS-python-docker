@@ -10,8 +10,8 @@ RUN python3 -m venv venv && \
     . venv/bin/activate && \
     pip install --no-cache-dir -r requirements.txt
 
-# Установим совместимую версию MarkupSafe
-RUN pip install --no-cache-dir MarkupSafe==1.1.1
+# Установим совместимую версию Werkzeug
+RUN pip install --no-cache-dir Werkzeug==2.1.0
 
 # Копируем код в контейнер
 COPY . .
