@@ -1,7 +1,12 @@
 # for testing Actions Github 2.0
 
 from flask import Flask, render_template, request
-from werkzeug.urls import url_quote, url_unquote
+from werkzeug.urls import unquote as url_unquote
+
+try:
+    from werkzeug.urls import quote as url_quote
+except ImportError:
+    from werkzeug.urls import quote as url_quote
 
 app = Flask(__name__)
 
