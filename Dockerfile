@@ -1,17 +1,21 @@
-# Используем базовый образ с Python
+# Используем базовый образ Python
 FROM python:3.8
 
-# Устанавливаем зависимости
-WORKDIR /app
-COPY requirements.txt .
+# Устанавливаем переменную окружения для работы внутри контейнера
+ENV PYTHONUNBUFFERED 1
 
-# Создаем виртуальное окружение и устанавливаем зависимости
-RUN python3 -m venv venv && \
+# Устанавливаем рабочую директорию в контейнере
+WORKDIR /app
+
+# Копируем файлы в контейнер (requirements.txt и весь остальной код)
+COPY requirements.txt /app/
+COPY . /app/
+
+# Устанавливаем зависимости
+RUN python -m venv venv && \
     . venv/bin/activate && \
+    pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Копируем код в контейнер
-COPY . .
-
-# Активируем виртуальное окружение и запускаем приложение
-CMD ["/app/venv/bin/python", "/app/app.py"]
+# Команда для запуска приложения при старте контейнера
+CMD ["/app/venv/bin/python", "app.py"]
