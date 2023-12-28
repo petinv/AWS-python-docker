@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,26 +8,29 @@
     <title>Приветствие</title>
     <style>
         body {
-            background-color: #f4f4f4; /* Цвет фона */
-            font-family: 'Arial', sans-serif; /* Шрифт */
+            background-color: #e4e4e4;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 50vh; /* Высота экрана */
+            min-height: 70vh;
+            flex-direction: column;
         }
 
         #container {
             text-align: center;
-            background-color: #ffffff; /* Цвет фона блока */
+            background-color: #ffffff;
             padding: 20px;
-            border: 2px solid #e0e0e0; /* Цвет рамки */
-            border-radius: 10px; /* Закругленные углы */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень блока */
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            margin-bottom: 20px;
         }
 
         h1 {
-            color: #333333; /* Цвет текста */
+            color: #333333;
         }
 
         form {
@@ -46,26 +50,63 @@
 
         button {
             padding: 10px 20px;
-            background-color: #4caf50; /* Зеленый цвет кнопки */
-            color: #ffffff; /* Белый цвет текста на кнопке */
+            background-color: #4caf50;
+            color: #ffffff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #45a049; /* Темнозеленый цвет при наведении на кнопку */
+            background-color: #45a049;
+        }
+
+        .github-link {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap; /* добавлено */
+        }
+
+        .version {
+            color: #ffffff;
+            position: absolute;
+            bottom: 0;
+            right: 10px;
+            margin: 10px;
+            opacity: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: slideIn 2s forwards; /* добавлено */
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body>
     <div id="container">
         <h1>{{ greeting or 'Добро пожаловать!' }}</h1>
-        <form method="post">
+        <form id="welcomeForm" action="{{ url_for('greet') }}" method="post">
             <label for="name">Введите ваше имя: </label>
             <input type="text" id="name" name="name" required>
             <button type="submit">Приветствовать</button>
         </form>
     </div>
+
+    <p class="github-link">Проект доступен на GitHub: <a href="https://github.com/petinv/aws-python-docker" target="_blank">GitHub</a></p>
+
+    <div class="version">version 1.2</div>
 </body>
+
 </html>
